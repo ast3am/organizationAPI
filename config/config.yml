@@ -1,0 +1,14 @@
+listen_port: "8080"
+sql_config:
+  username_db: "postgres"
+  password_db: "password"
+  host_db: "postgres"
+  port_db: "5432"
+  db_name: "organization_db"
+  delay_time: 10
+email_dealer_config:
+  host_email: "smtp.rambler.ru"
+  port_email: 465
+  username_email: ""
+  password_email: ""
+log_level: "debug"

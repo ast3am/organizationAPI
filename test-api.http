@@ -1,0 +1,59 @@
+POST http://localhost:8080/v1/organization/create
+Content-Type: application/json; charset=utf-8
+
+{"name":"testorg2","legal_type":"oao","legal_address":"somestreet", "inn": "123456789012", "owner_id": 10}
+###
+POST http://localhost:8080/v1/organization/create
+Content-Type: application/json; charset=utf-8
+
+{"name":"testorg2","legal_type":"oao","legal_address":"somestreet", "inn": "123456789012", "owner_id": "hi"}
+###
+POST http://localhost:8080/v1/organization/create
+Content-Type: application/json; charset=utf-8
+
+{"name":"testorg","legal_type":"oao","legal_address":"somestreet", "inn": "123456789012", "owner_id": 11}
+###
+POST http://localhost:8080/v1/organization/edit
+Content-Type: application/json; charset=utf-8
+
+{"name":"my_organizations","legal_type":"ooo","legal_address":"somestreet", "inn": "123456789012", "owner_id": 10}
+###
+POST http://localhost:8080/v1/organization/edit
+Content-Type: application/json; charset=utf-8
+
+{"name":"my_organization","legal_type":"ooo","legal_address":"somestreet", "inn": "123456789012", "owner_id": 2}
+###
+GET http://localhost:8080/v1/organization/get_info/1/10
+###
+GET http://localhost:8080/v1/organization/get_info/8/3
+###
+POST http://localhost:8080/v1/filial/create
+Content-Type: application/json; charset=utf-8
+
+{"user_id":10,"filial_name":"filial A","country":"USA", "city": "New York", "address": "123 Main Street", "filial_type":"Retail", "phone_list": "555-123-4567, 555-987-6543", "email_list":"branchA@example.com, contact@branchA.com", "photo_id_list": "1, 2, 3", "organization_id": 2}
+###
+POST http://localhost:8080/v1/filial/create
+Content-Type: application/json; charset=utf-8
+
+{"user_id":11,"filial_name":"filial A","country":"USA", "city": "New York", "address": "123 Main Street", "filial_type":"Retail", "phone_list": "555-123-4567, 555-987-6543", "email_list":"branchA@example.com, contact@branchA.com", "photo_id_list": "1, 2, 3", "organization_id": 2}
+###
+POST http://localhost:8080/v1/filial/create
+Content-Type: application/json; charset=utf-8
+
+{"user_id":3,"filial_name":"filial A","country":"USA", "city": "New York", "address": "123 Main Street", "filial_type":"Retail", "phone_list": "555-123-4567, 555-987-6543", "email_list":"branchA@example.com, contact@branchA.com", "photo_id_list": "1, 2, 3", "organization_id": 8}
+###
+POST http://localhost:8080/v1/filial/edit
+Content-Type: application/json; charset=utf-8
+
+{"user_id":11,"filial_name":"filial A edited","country":"USA", "city": "New York", "address": "123 Main Street", "filial_type":"Retail", "phone_list": "555-123-4567, 555-987-6543", "email_list":"branchA@example.com, contact@branchA.com", "photo_id_list": "1, 2, 3", "filial_id": 1}
+###
+GET http://localhost:8080/v1/filial/get_info/1/10
+###
+GET http://localhost:8080/v1/filial/get_info/1/11
+###
+GET http://localhost:8080/v1/organization/filials/2/11
+###
+POST http://localhost:8080/v1/filial/add_worker
+Content-Type: application/json; charset=utf-8
+
+{"organization_id": 2, "filial_id": 1,"user_id":11, "position": "worker", "email": ""}

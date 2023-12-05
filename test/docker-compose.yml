@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:15.4
+    environment:
+      POSTGRES_DB: "organization_db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+    healthcheck:
+      test: pg_isready --username "postgres" --dbname "organization_db"
+      interval: 1s
+      retries: 3
+      timeout: 5s
+    ports:
+      - "5430:5432"
+    volumes:
+      - ./../schema/organization_create_test_table.sql:/docker-entrypoint-initdb.d/organization_create_test_table.sql
